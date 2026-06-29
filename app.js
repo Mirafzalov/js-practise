@@ -316,7 +316,7 @@
 //         errorOrder("All products are out of stock.");
 //         return;
 //     }
-
+// 
 
 //     successOrder({
 //         orderId: Math.floor(Math.random() * 10000),
