@@ -51,7 +51,7 @@
 //         hasNoJob.push(user[i].first_name)
 //         console.log(`${user[i].first_name} has no job`)
 //     }
-    
+
 // }
 
 // console.log(hasJob);
@@ -75,7 +75,7 @@
 // let points = 100;
 // for (let roll = 1; roll <= 10; roll++){
 //     let dice = Math.floor(Math.random() * 6) + 1;
-    
+
 //     if (dice == 6){
 //         console.log(`Roll: ${roll}, Got ${dice}`);
 //         points += 20
@@ -146,7 +146,7 @@
 //         task: "Programming",
 //         isCompleted: true,
 //     }   
-    
+
 // ]
 
 // 1
@@ -191,7 +191,7 @@
 
 
 // const isPasswordValid = (inputPassword, Password) =>{
-    
+
 //     return inputPassword === Password;
 // }
 
@@ -203,7 +203,7 @@
 // const loginUser = (username, password) =>{
 //     if (isUsernameValid(username, 'admin') && isPasswordValid(password, 'admin12345678')){
 //         alert(`Welcome ${username}`);
-        
+
 //     }else{
 //         alert('Wrong usernaem or password, try again')
 //     }
@@ -235,7 +235,7 @@
 //         title: 'iphone 17',
 //         price: 1100,
 //         quantity: 25,
-    
+
 //     },
 //     {
 //         id: 2,
@@ -337,3 +337,223 @@
 //     console.log( 'Error' + error)it
 
 // })
+
+
+
+// ################################ Callback functions
+
+
+
+// const isInputValid = (email, password) => {
+//     if (!email.includes('@')){
+//         return false;
+//     };
+
+//     if (password.length < 8){
+//         return false;
+//     };
+//     return true;
+// };
+
+
+
+
+// const registerUser = (email, password, onSuccess ,onError) => {
+//     if (!isInputValid(email, password)){
+//         onError('Invalid email or password');
+//         return;
+//     };
+
+//     const newUser = {
+//         id: 1,
+//         email: email,
+//         createdAt: new Date().toISOString()
+//     } 
+//     onSuccess(newUser);       
+// }
+
+
+// registerUser('@mirafzalov416', '12345678', (user) =>{
+//     console.log('User is created');
+//     console.log('Id: ' + user.id);
+//     console.log('email: ' + user.email)
+
+// }, (error) => {
+//     console.log('Error ' + error)
+// })
+
+
+
+// ######################################## try and catch
+
+
+
+// let json = '{"name": "Max"}';
+
+// try{
+//     let user = JSON.parse(json);
+//     alert(user.name);
+
+// }catch(e){
+//     alert(e.name);
+//     alert(e.message)
+// }
+
+
+
+// ########################## Promise
+// #1
+// const myPromise = new Promise((resolve, reject) =>{
+
+//     setTimeout(() => {
+//         resolve('Here is your data!')
+//     }, 3000);
+// });
+
+
+// myPromise
+//     .then(data => {
+//     console.log(data);
+
+// })
+//     .catch(error => {
+//         console.log('Error', error);
+//     });
+
+// console.log('I am requesting data...');
+
+
+
+
+// #2
+// const fetchUser = (userId) => {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             if (userId > 0) {
+//                 resolve({
+//                     userId: userId,
+//                     name: 'Max',
+//                     email: '@Max416'
+//                 });
+//             }else{
+//                 reject('Invalid user');
+//             }
+//         }, 300);
+//     });
+
+
+
+// };
+
+
+// fetchUser(1)
+//     .then(user => {
+//         console.log('Found user');
+//         console.log(user.userId);
+//         console.log(user.name);
+//         console.log(user.email);
+//     })
+//     .catch(error => {
+//         console.log(error)
+//     })
+
+// console.log('Looking for user...')
+
+
+
+
+// ################################### async and Pomises
+
+
+
+// function foodCook(food) {
+//     return new Promise((resolve, reject) => {
+
+//         console.log('Accepted the order and started cooking ' + food);
+
+//         setTimeout(() => {
+//             resolve(food + ' is ready');
+//         }, 3000);
+//     });
+// } 
+
+
+
+
+// async function orderFood(food) {
+//     console.log('Place your order')
+//     try {
+//         food = await foodCook(food)
+//         console.log(food + ' and soon to be served')
+
+//     } catch (e) {
+//         console.error("Error -> ", e);
+
+//     }
+// }
+
+// orderFood('Burger')
+
+// console.log('The food is being cooked...')
+
+
+
+// #################### async
+
+
+
+
+// const users = [
+//     {
+//         id: 1,
+//         first_name: 'Max',
+//         last_name: 'Maximov',
+//         job: 'Bsuiness Manager'
+//     },
+//     {
+//         id: 2,
+//         first_name: 'Aex',
+//         last_name: 'Alexiev',
+//         job: 'Accountant'
+//     },
+//     {
+//         id: 3,
+//         first_name: 'John',
+//         last_name: 'Shelby',
+//         job: 'Enterpreneur'
+//     },
+
+
+
+
+// ############################################################## Mini weather getter
+
+// async function getWeather() {
+//     const city = prompt('Enter your city: ')
+
+//     const getLocation = await fetch(
+//         `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1`
+//     );
+//     const getData = await getLocation.json();
+
+//     if (!getData.results) {
+//         console.log('City not found');
+//         return;
+//     };
+
+//     const { latitude, longitude, name } = getData.results[0];
+
+//     const weatherResponse = await fetch(
+//         `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code&timezone=auto`
+//     );
+
+//     const weatherData = await weatherResponse.json();
+//     console.log("City:", name);
+//     console.log("Temperature:", weatherData.current.temperature_2m + "°C");
+//     console.log("Humidity:", weatherData.current.relative_humidity_2m + "%");
+//     console.log("Timezone:", weatherData.timezone);
+//     console.log("Time:", weatherData.current.time);
+// }
+
+
+// getWeather();
