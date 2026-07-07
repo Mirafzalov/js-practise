@@ -282,7 +282,58 @@
 // console.log(solution(10))
 
 
+// let book = {
+//     title: 'The happy life',
+//     year: 2000
+// } 
+
+
+// let users = [
+//     {
+//         name: 'amir',
+//         job: 'programmer'
+//     },
+//     {
+//         name: 'mir',
+//         job: 'chef'
+//     }
+
+// ];
+
+
+// const user1 = { name: "Milo" };
+// const user2 = { name: "Buddy"};
+
+// function sayHi(){
+//     console.log(this.name)
+// } 
+
+// user1.f = sayHi
+// user2.f = sayHi
 
 
 
-// sdfonsdnfjdsnfjs
+// user1.f()
+// user2.f()
+
+
+
+
+// for (let u of users){   
+//     u['name'] = u['first_name']
+//     console.log(u)
+// }
+
+// console.log(user)
+// user['name'] = "Pete"; 
+// user['last_name'] = 'Pa'
+// console.log(user)
+
+
+
+
+// const number = 1e9
+// for (let i = 1; i < number; i++){
+//     console.log(i)
+// }
+
