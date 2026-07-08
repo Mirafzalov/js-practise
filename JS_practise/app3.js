@@ -12,6 +12,8 @@
 //     return null
 // }
 
+// const { use } = require("react");
+
 
 // console.log(findAB([-3,-2,-1,0,1,2,3,4], 4))
 
@@ -237,7 +239,7 @@
 //         for (let j = 0; j < num.length - i; j++) {
 //             n = num.slice(j, i + j + 1)
 //             if (Number(n).toString() === n.split('').reverse().join('') && n !== '00' && n != 20 && n!= 200) {
- 
+
 //                 if (!seen.has(n)) {
 //                     res.push(n)
 //                     seen.add(n)
@@ -263,13 +265,13 @@
 // console.log(palindrome(880880));
 
 
-
+// (6 kyu)
 // function solution(number){
 //     if (number < 0){
 //         return 0
 //     }
 //     let res = 0;
-//     for (let i = 1; i < number; i++) {
+//     for (let i = 0; i < number; i++) {
 //         if (i % 3 == 0 || i % 5 == 0){
 //             console.log(i)
 //             res += i;
@@ -280,6 +282,8 @@
 
 
 // console.log(solution(10))
+
+
 
 
 // let book = {
@@ -332,8 +336,92 @@
 
 
 
-// const number = 1e9
-// for (let i = 1; i < number; i++){
-//     console.log(i)
+
+
+
+let fruits = ['Apple', 'Banana', 'Cherr', 'Strawberry', 'Watermelon', { user: "Mir" }]
+
+
+let numbers = [23, 12, 7, 32, 5, 2];
+
+const user = {
+    name: 'alex',
+    age: 23,
+    address: ['street34', 'street23']
+}
+// {
+//     name: 'Ali',
+//     age: 34
+// }
+// ]
+
+// for (let value of Object.values(user)) {
+//     console.log(value);
 // }
 
+
+
+
+// let salaries = {
+//   "John": 100,
+//   "Pete": 300,
+//   "Mary": 250
+// };
+
+// let sum = Object.values(salaries).reduce((acc, sal) => acc+sal, 0)
+// console.log(sum)
+
+
+// let [name='Alex', surname='Watson'] = []
+// console.log(name)
+
+// let a = 'Alex';
+// let b = 'Ali';
+
+// // [a, b] = [b, a]; 
+
+// let [name, surname] = ['Alex', "Watson"]
+
+
+// console.log(name)
+// console.log(surname)
+
+
+
+
+// let options = {
+//   title: "Menu"
+// };
+
+// let {width=null, height=null, title=null} = options;
+
+// console.log(title)
+// console.log(height)
+// console.log(width)
+
+
+
+// MAX Salary Finder
+// let salaries = {
+//   "John": 100,
+//   "Pete": 300,
+//   "Mary": 250
+// };
+//  let first = Object.entries(salaries)[0]
+// console.log(first)
+
+// let[name, maxSalary] =  Object.entries(salaries).reduce((max, sal) => sal[1] > max[1] ? sal : max)
+// console.log(name, maxSalary)
+
+
+
+const promise = new Promise((resolve, reject) => {
+    resolve('Working');
+    reject("Error")
+})
+    .then(result => {
+        console.log(result)
+    })
+    .catch(error => {
+        console.log(error);
+    });
