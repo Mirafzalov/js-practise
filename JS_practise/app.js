@@ -522,6 +522,7 @@
 //         last_name: 'Shelby',
 //         job: 'Enterpreneur'
 //     },
+// ]
 
 
 
@@ -557,3 +558,5 @@
 
 
 // getWeather();
+
+
